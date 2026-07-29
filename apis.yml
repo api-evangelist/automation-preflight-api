@@ -1,0 +1,45 @@
+name: Automation Preflight API
+description: >-
+  A self-serve REST API by TinyOps Studio LLC that inspects a public URL and returns deterministic, bounded JSON
+  integration-readiness evidence across reachability, integration surface, and readiness scoring. It rejects
+  private/credential-bearing targets, honors robots exclusions, bounds redirects and response sizes, does not execute
+  JavaScript, and does not return raw HTML.
+url: https://automation-preflight-api.apievangelist.com/apis.yml
+created: '2026-07-29'
+modified: '2026-07-29'
+specificationVersion: '0.21'
+tags:
+  - automation
+  - integration
+  - developer-tools
+  - readiness
+  - testing
+apis:
+  - name: Automation Preflight API
+    description: >-
+      REST API with one authenticated endpoint (POST /direct/analyze) and an unauthenticated GET /health. Returns
+      bounded integration-preflight evidence for a supplied public URL. Auth via X-TinyOps-API-Key header (Gumroad
+      license key).
+    humanURL: https://tinyopsstudio.com/automation-preflight-api
+    baseURL: https://tinyops-automation-preflight.ancient-field-1495.workers.dev
+    tags:
+      - automation
+      - integration
+      - developer-tools
+      - readiness
+      - testing
+    properties:
+      - type: OpenAPI
+        url: https://tinyopsstudio.com/assets/automation-preflight-api-openapi.json
+      - type: Documentation
+        url: https://tinyopsstudio.com/automation-preflight-api
+      - type: LLMSTxt
+        url: https://tinyopsstudio.com/llms.txt
+maintainers:
+  - FN: TinyOps Studio LLC
+    url: https://tinyopsstudio.com
+generated:
+  by: apis.io/add
+  model: claude-opus-4-8
+  confidence: 90
+  at: '2026-07-29T04:42:25.191Z'
