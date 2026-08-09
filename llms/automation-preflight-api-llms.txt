@@ -1,0 +1,50 @@
+# TinyOps Studio
+
+TinyOps Studio LLC sells fixed-price automation and agent-operations services for teams that need a specific workflow debugged, mapped, or shipped.
+
+## Agent
+
+Name: TinyOps Studio Work Agent
+Status: https://tinyopsstudio.com/api/agent/status
+Identity card: https://tinyopsstudio.com/.well-known/agent.json
+Contact: support@tinyopsstudio.com
+
+## Primary services
+
+- Automation Rescue Sprint: https://tinyopsstudio.com/automation-rescue-sprint
+- AI Readiness & Governance Sprint: https://tinyopsstudio.com/ai-readiness-governance-sprint
+- Workflow Audit: https://tinyopsstudio.com/workflow-audit
+- 48-Hour Reporting Gap Scan ($149): https://whop.com/48-hour-reporting-gap-scan/
+- Excel or CSV Import Fix ($99): https://www.freelancer.com/service/excel/i-will-fix-one-excel-or-csv-data-import
+- Automation or API Workflow Audit + Fix ($149): https://www.freelancer.com/service/test_automation/i-will-fix-one-automation-or-api-workflow
+- Done-for-You Business Automation ($499): https://reworkdigital.io/services/i-will-build-one-business-automation-workflow-58/
+- Focused AI Operations Assistant ($999): https://reworkdigital.io/services/i-will-build-your-focused-ai-ops-assistant-57/
+- AI Agent Cost Audit: https://tinyopsstudio.com/ai-agent-cost-audit
+- OpenClaw VPS Deployment Kit ($29): https://tinyopsstudio.com/openclaw-vps-deployment-kit
+- OpenClaw VPS Agent Host Setup ($450): https://tinyopsstudio.com/openclaw-vps-agent-host-setup
+- Shopify Subscription Renewal Recovery Matrix ($149): https://tinyopsstudio.com/shopify-subscription-renewal-recovery
+- Shopify Order Printer Barcode Template Build ($149): https://tinyopsstudio.com/shopify-order-printer-barcode-template
+- Hawaii DOTAX RFP Response Support: https://tinyopsstudio.com/hawaii-dotax-rfp-response-support
+- RFP Compliance Gap Scan ($149): https://tinyopsstudio.com/rfp-compliance-gap-scan
+- Proposal Response Accelerator ($2,500): https://whop.com/proposal-response-accelerator/
+- Ontario Health Workflow RFP Response Checklist: https://tinyopsstudio.com/ontario-health-workflow-response-checklist
+- Calgary Security Incident RFP Response Checklist: https://tinyopsstudio.com/calgary-security-incident-management-response-checklist
+- Troutmate Starter Site for Sale ($99): https://tinyopsstudio.com/troutmate-starter-site-for-sale
+- Tarrant County F2026148 Response Checklist: https://tinyopsstudio.com/tarrant-county-f2026148-response-checklist
+- FENZ RFP 5251 Fleet Cellular Installations Checklist: https://tinyopsstudio.com/fenz-rfp-5251-fleet-cellular-installations-checklist
+- Stripe to QuickBooks payout proof: https://tinyopsstudio.com/stripe-quickbooks-payout-reconciliation-demo
+- Start a request: https://tinyopsstudio.com/start
+
+## Free tools and templates
+
+- OpenClaw VPS Security Preflight: https://tinyopsstudio.com/openclaw-vps-security-preflight
+- AI Acceptable Use Policy Generator: https://tinyopsstudio.com/ai-acceptable-use-policy-generator
+- AI Acceptable Use Policy Template Pack: https://tinyopsstudio.com/ai-acceptable-use-policy-template-pack
+
+## Capabilities
+
+Public API and documentation QA, workflow debugging, automation triage, data extraction, code review, small code patches, browser automation evidence capture, monitoring, and concise research reports.
+
+## Boundaries
+
+TinyOps does not bypass captchas, access private systems without authorization, spam, probe secrets, impersonate people, or handle illegal work.

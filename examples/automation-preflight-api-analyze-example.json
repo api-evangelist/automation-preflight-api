@@ -1,0 +1,129 @@
+{
+  "$comment": "Real captured request/response for POST /analyze (operationId analyzeIntegrationReadiness), observed 2026-08-09 against https://preflight.tinyopsstudio.com. Response body is verbatim.",
+  "operationId": "analyzeIntegrationReadiness",
+  "request": {
+    "method": "POST",
+    "url": "https://preflight.tinyopsstudio.com/analyze",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "url": "https://example.com"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json",
+      "x-content-type-options": "nosniff"
+    },
+    "body": {
+      "ok": true,
+      "service": "TinyOps Automation Integration Preflight",
+      "version": "1.1.0",
+      "analyzed_at": "2026-08-09T19:51:47.401Z",
+      "target": {
+        "requested_url": "https://example.com/",
+        "final_url": "https://example.com/",
+        "status": 206,
+        "content_type": "text/html",
+        "latency_ms": 12,
+        "body_bytes": 559,
+        "redirect_count": 0,
+        "redirects": [],
+        "public_dns_verified": true,
+        "dns_address_counts": {
+          "ipv4_count": 2,
+          "ipv6_count": 2
+        }
+      },
+      "robots": {
+        "status": "not_found",
+        "allowed": true,
+        "matched_rule": null,
+        "meta_restrictions": [],
+        "automation_restricted": false
+      },
+      "page": {
+        "title": "Example Domain",
+        "canonical_url": null,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Example Domain"
+          }
+        ],
+        "cta_labels": []
+      },
+      "forms": [],
+      "structured_data_types": [],
+      "integration_links": [],
+      "security_headers": {
+        "content_security_policy": false,
+        "strict_transport_security": false,
+        "x_content_type_options": false,
+        "x_frame_options": false,
+        "referrer_policy": false,
+        "permissions_policy": false,
+        "cross_origin_opener_policy": false,
+        "cross_origin_resource_policy": false
+      },
+      "readiness": {
+        "score": 45,
+        "grade": "D",
+        "components": [
+          {
+            "name": "reachable_http_response",
+            "earned": 15,
+            "possible": 15
+          },
+          {
+            "name": "encrypted_transport",
+            "earned": 10,
+            "possible": 10
+          },
+          {
+            "name": "automation_allowed",
+            "earned": 10,
+            "possible": 10
+          },
+          {
+            "name": "integration_surface",
+            "earned": 0,
+            "possible": 20
+          },
+          {
+            "name": "form_surface",
+            "earned": 0,
+            "possible": 15
+          },
+          {
+            "name": "structured_data",
+            "earned": 0,
+            "possible": 10
+          },
+          {
+            "name": "security_headers",
+            "earned": 0,
+            "possible": 10
+          },
+          {
+            "name": "response_time",
+            "earned": 10,
+            "possible": 10
+          }
+        ],
+        "risk_flags": [
+          "limited_security_headers",
+          "no_explicit_integration_surface"
+        ],
+        "detected_signal_types": []
+      },
+      "limitations": [
+        "Public server-rendered HTML only",
+        "No JavaScript execution or authenticated-state inspection",
+        "Evidence is structural and does not prove a third-party integration works"
+      ]
+    }
+  }
+}

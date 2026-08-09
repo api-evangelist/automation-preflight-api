@@ -1,0 +1,65 @@
+generated: '2026-08-09'
+method: derived
+status: candidate
+source: >-
+  openapi/automation-preflight-api-preflight-openapi.json and
+  openapi/automation-preflight-api-direct-openapi.json
+description: >-
+  TinyOps Studio publishes NO MCP server for the Automation Preflight API. This
+  file is a candidate tool surface derived from the published OpenAPI operations
+  — a design proposal, not a provider artifact. No MCPServer pointer is wired in
+  apis.yml, because there is no server to point at.
+search_evidence:
+  - probe: https://tinyops-automation-preflight.ancient-field-1495.workers.dev/mcp
+    http_status: 404
+  - probe: npm registry search "tinyops"
+    result: >-
+      One hit — tinyops-mcp-server — which is NOT this provider. It is authored by
+      Emmanuel Okeke (homepage tinyops.cc, repo Okekejr/tinyops-mcp-server) for an
+      unrelated product that shares the name. Explicitly rejected as a
+      first-party artifact.
+  - probe: web search for a TinyOps Studio MCP server
+    result: no result
+  - probe: https://tinyopsstudio.com/llms.txt
+    result: >-
+      Advertises an agent identity card and a status endpoint, but no MCP server.
+server:
+  name: automation-preflight
+  transport: http
+  url: null
+tools:
+  - name: analyze_page_readiness
+    description: >-
+      Fetch a public URL and return bounded integration-readiness evidence:
+      reachability, robots policy, page structure, forms, integration links,
+      security headers, and a deterministic readiness score.
+    source_operation: openapi/automation-preflight-api-preflight-openapi.json#analyzeIntegrationReadiness
+    input_schema_source: >-
+      Inherits requestBody of POST /analyze — object, additionalProperties false,
+      required [url], url string/uri maxLength 2048.
+    consequence: read
+  - name: build_acceptance_pack
+    description: >-
+      Build an implementation-ready automation acceptance pack for a public URL:
+      preflight evidence plus launch gates, acceptance tests, and a prioritized
+      remediation backlog.
+    source_operation: openapi/automation-preflight-api-preflight-openapi.json#buildAutomationAcceptancePack
+    input_schema_source: >-
+      Inherits requestBody of POST /acceptance-pack — object,
+      additionalProperties false, required [url], optional objective string
+      maxLength 500.
+    consequence: read
+  - name: check_service_health
+    description: Check that the preflight service is up and report its build version.
+    source_operation: openapi/automation-preflight-api-preflight-openapi.json#health
+    input_schema_source: No parameters.
+    consequence: read
+notes:
+  - >-
+    The API is an unusually clean MCP candidate: three read-only operations, a
+    single required string input, and a bounded JSON output. The agent-routing
+    use case is one the provider already markets on its own docs page.
+  - >-
+    Because every operation is read-only and creates no server-side state, an
+    MCP exposure would carry low agentic risk. See
+    agentic-access/automation-preflight-api-agentic-access.yml.

@@ -1,0 +1,62 @@
+generated: '2026-08-09'
+method: probed
+source: live GET of the /.well-known/ surface on every apis.yml and OpenAPI servers[] host
+description: >-
+  The /.well-known/ discovery surface for TinyOps Studio LLC. One document is
+  served: an agent identity card at the pre-0.3 legacy path /.well-known/agent.json
+  (captured verbatim, and graded in a2a/automation-preflight-api-a2a.yml). There is
+  no security.txt, no OIDC/OAuth discovery (the API is API-key only), and no
+  api-catalog.
+hosts:
+  - host: https://tinyopsstudio.com
+    role: website + documentation
+    documents:
+      - path: /.well-known/agent.json
+        status: 200
+        content_type: application/json
+        file: automation-preflight-api-agent.json
+        note: ClawdMarket agent-spec identity card; see a2a/
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+  - host: https://tinyops-automation-preflight.ancient-field-1495.workers.dev
+    role: API origin (Cloudflare Workers)
+    documents:
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+related:
+  robots_txt:
+    url: https://tinyopsstudio.com/robots.txt
+    status: 200
+    content_signal: search=yes,ai-train=no,use=reference
+    note: >-
+      Cloudflare-managed content-signal block. Named AI crawlers (GPTBot, ClaudeBot,
+      CCBot, Google-Extended, Bytespider, Amazonbot, Applebot-Extended,
+      meta-externalagent) are Disallow: / while User-agent: * is allowed.
+  sitemap:
+    url: https://tinyopsstudio.com/sitemap.xml
+    status: 200
+    urls: 256
+  llms_txt:
+    url: https://tinyopsstudio.com/llms.txt
+    status: 200
+    file: ../llms/automation-preflight-api-llms.txt

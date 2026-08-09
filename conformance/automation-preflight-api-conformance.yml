@@ -1,0 +1,98 @@
+generated: '2026-08-09'
+method: derived
+source: >-
+  openapi/automation-preflight-api-direct-openapi.json,
+  openapi/automation-preflight-api-preflight-openapi.json, live probes of
+  tinyopsstudio.com and preflight.tinyopsstudio.com, and
+  https://tinyopsstudio.com/automation-preflight-api (2026-08-09).
+description: >-
+  Which cross-cutting standards this API conforms to. This is a small,
+  single-purpose service with API-key auth and no event surface, so most of the
+  enterprise standards below are simply not applicable rather than failed.
+standards:
+  - id: openapi-3.0
+    conforms: true
+    evidence: >-
+      openapi/automation-preflight-api-direct-openapi.json declares openapi 3.0.3
+      and is served publicly at
+      https://tinyopsstudio.com/assets/automation-preflight-api-openapi.json.
+  - id: openapi-3.1
+    conforms: true
+    evidence: >-
+      openapi/automation-preflight-api-preflight-openapi.json declares openapi
+      3.1.0 and is served from the API host root at
+      https://preflight.tinyopsstudio.com/openapi.json.
+  - id: api-key-auth
+    conforms: true
+    evidence: securitySchemes.TinyOpsApiKey is type apiKey, in header, name X-TinyOps-API-Key.
+  - id: oauth2
+    conforms: false
+    evidence: No oauth2 securityScheme in either contract; /.well-known/oauth-authorization-server returned 404.
+  - id: oidc
+    conforms: false
+    evidence: /.well-known/openid-configuration returned 404.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: >-
+      Errors are returned as application/json with a proprietary
+      {"ok":false,"error":{"code","message"}} envelope, not application/problem+json.
+  - id: rfc9116-security-txt
+    conforms: false
+    evidence: /.well-known/security.txt returned 404 on both the website and the API host.
+  - id: rfc8594-sunset-header
+    conforms: false
+    evidence: No deprecation or sunset policy published; no operation marked deprecated.
+  - id: rfc8615-well-known
+    conforms: true
+    evidence: >-
+      Serves /.well-known/agent.json (HTTP 200, application/json) from
+      tinyopsstudio.com.
+  - id: a2a-agent-card
+    conforms: false
+    evidence: >-
+      An agent identity card is served at the legacy /.well-known/agent.json path,
+      but it is written to the ClawdMarket agent-spec schema — capabilities is an
+      array, there is no protocolVersion and no skills[]. Graded "flavored" in
+      a2a/automation-preflight-api-a2a.yml.
+  - id: llms-txt
+    conforms: true
+    evidence: https://tinyopsstudio.com/llms.txt returns 200 text/plain and follows the llms.txt shape.
+  - id: robots-content-signals
+    conforms: true
+    evidence: >-
+      https://tinyopsstudio.com/robots.txt publishes Cloudflare content signals
+      (search=yes, ai-train=no, use=reference) — an explicit machine-readable
+      AI-usage reservation.
+  - id: cors
+    conforms: true
+    evidence: Access-Control-Allow-Headers returned on POST /analyze.
+  - id: idempotency
+    conforms: false
+    evidence: No Idempotency-Key header or equivalent in either contract or the documentation.
+  - id: pagination
+    conforms: false
+    applicable: false
+    evidence: No collection endpoints — every response is a single evidence document.
+  - id: asyncapi
+    conforms: false
+    applicable: false
+    evidence: >-
+      No event, streaming, or webhook surface. The API is strictly synchronous
+      request/response. Not a gap — there is nothing to publish.
+  - id: json-schema
+    conforms: partial
+    evidence: >-
+      Request bodies are fully schema'd (type object, additionalProperties false,
+      required url, maxLength 2048). Responses declare no schema at all in either
+      contract.
+compliance_program:
+  published: false
+  certifications: []
+  evidence: >-
+    No trust center, no SOC 2 / ISO 27001 / PCI / HIPAA / FedRAMP claim found.
+    probe-security-programs.py returned vdp=none trust=none. TinyOps Studio LLC
+    is a small studio; a certification program would not be expected.
+gaps:
+  - Responses carry no JSON Schema in either OpenAPI contract.
+  - Errors do not use RFC 9457, and the error-code vocabulary is unpublished.
+  - No security.txt / vulnerability-disclosure path.

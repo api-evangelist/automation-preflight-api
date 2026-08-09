@@ -1,0 +1,58 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for TinyOps Automation Integration Preflight (host contract)
+  version: 1.0.0
+extends: openapi/automation-preflight-api-preflight-openapi.json
+x-generated: '2026-08-09'
+x-method: generated
+x-source: >-
+  API Evangelist enrichment pass. Adds the response model captured from a real
+  call on 2026-08-09 — the published contract declares every response with a
+  description and no schema.
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-provider: automation-preflight-api
+      x-apievangelist-note: >-
+        Discovered at the API host root (/openapi.json), not on the docs host.
+        Served identically from https://preflight.tinyopsstudio.com and the
+        Cloudflare Workers origin.
+  - target: $.paths['/analyze'].post
+    update:
+      x-apievangelist-auth-note: >-
+        Declares no security requirement, and verified answering HTTP 200
+        anonymously on 2026-08-09. This is the open tier.
+      x-agentic-access:
+        action-class: connected
+        consequence: read
+      x-response-model: data-model/automation-preflight-api-data-model.yml
+      x-example: examples/automation-preflight-api-analyze-example.json
+  - target: $.paths['/analyze'].post.responses['200']
+    update:
+      x-apievangelist-observed-fields:
+        - ok
+        - service
+        - version
+        - analyzed_at
+        - target
+        - robots
+        - page
+        - forms
+        - structured_data_types
+        - integration_links
+        - security_headers
+        - readiness
+      x-apievangelist-note: >-
+        No schema is declared in the contract. Field list captured from a live
+        response; see data-model/.
+  - target: $.paths['/acceptance-pack'].post
+    update:
+      x-agentic-access:
+        action-class: connected
+        consequence: read
+      x-apievangelist-commercial-note: >-
+        Sold as a $25-per-run product on AgenticTrade. See
+        plans/automation-preflight-api-plans.yml.
+  - target: $.paths['/health'].get
+    update:
+      x-apievangelist-observed-body: '{"ok":true,"service":"TinyOps Automation Integration Preflight","version":"1.1.0","status":"healthy"}'

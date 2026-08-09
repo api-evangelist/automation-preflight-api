@@ -1,0 +1,17 @@
+generated: '2026-08-09'
+method: derived
+source: openapi/automation-preflight-api-direct-openapi.json
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: TinyOpsApiKey
+  type: apiKey
+  in: header
+  parameter: X-TinyOps-API-Key
+  description: Use the Gumroad license key shown in the purchase receipt and download page,
+    or a key issued directly by TinyOps Studio.
+  sources:
+  - openapi/automation-preflight-api-direct-openapi.json

@@ -1,0 +1,61 @@
+generated: '2026-08-09'
+method: searched
+source: >-
+  https://tinyopsstudio.com/automation-preflight-api, the published OpenAPI
+  contracts, GET https://preflight.tinyopsstudio.com/health, and direct probes of
+  the usual policy paths on tinyopsstudio.com (2026-08-09).
+versioning:
+  scheme: none
+  current: 1.1.0
+  exposed_via:
+    - info.version in both OpenAPI contracts
+    - the "version" field of GET /health
+  detail: >-
+    There is no version segment in the URL path and no version request header.
+    The single production surface is unversioned; the 1.1.0 figure is an
+    informational build version, not a negotiable API version. A breaking change
+    would therefore land in place.
+deprecation:
+  policy_url: null
+  policy_published: false
+  sunset_header: false
+  deprecated_operations: []
+  note: No deprecation or sunset policy is published, and no operation is marked deprecated in either contract.
+sla:
+  url: null
+  uptime_target: null
+  note: No SLA or uptime commitment is published. Access is sold as a 30-day, 500-call allowance.
+status_page:
+  url: null
+  published: false
+  probed:
+    - url: https://tinyopsstudio.com/status
+      status: 404
+  health_endpoint:
+    url: https://preflight.tinyopsstudio.com/health
+    status: 200
+    operationId: health
+    auth: none
+    observed_body: '{"ok":true,"service":"TinyOps Automation Integration Preflight","version":"1.1.0","status":"healthy"}'
+    note: >-
+      An unauthenticated health endpoint exists and is the only availability
+      signal on offer. It is not a status page — there is no incident history,
+      no subscription, and no component breakdown.
+changelog:
+  url: null
+  published: false
+  probed:
+    - url: https://tinyopsstudio.com/changelog
+      status: 404
+support:
+  url: https://tinyopsstudio.com/support
+  email: support@tinyopsstudio.com
+  refund_window: 7 days for accidental purchases, duplicate purchases, or materially broken downloads
+access_period:
+  duration_days: 30
+  starts: at purchase
+gaps:
+  - No status page or incident history — only a bare /health endpoint.
+  - No changelog, so consumers cannot see what changed between builds.
+  - No deprecation or sunset policy on an unversioned surface, so a breaking change has no announced runway.
+  - No SLA or uptime target.

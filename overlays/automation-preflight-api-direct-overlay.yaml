@@ -1,0 +1,61 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for TinyOps Automation Integration Preflight (Direct Access)
+  version: 1.0.0
+extends: openapi/automation-preflight-api-direct-openapi.json
+x-generated: '2026-08-09'
+x-method: generated
+x-source: >-
+  API Evangelist enrichment pass. Captures observations made against the live API
+  on 2026-08-09 that the published contract does not express. The original
+  harvested spec is never mutated.
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-provider: automation-preflight-api
+      x-apievangelist-note: >-
+        This contract documents the metered Direct Access tier only. The same
+        service also publishes an OpenAPI 3.1.0 contract at the API host root
+        (https://preflight.tinyopsstudio.com/openapi.json) exposing POST /analyze
+        and POST /acceptance-pack, which this document omits.
+  - target: $.servers
+    update:
+      x-apievangelist-mirror: https://tinyops-automation-preflight.ancient-field-1495.workers.dev
+      x-apievangelist-note: >-
+        The Cloudflare Workers origin answers identically to the branded host and
+        is the baseURL recorded in apis.yml.
+  - target: $.paths['/direct/analyze'].post
+    update:
+      x-agentic-access:
+        action-class: connected
+        consequence: read
+        note: >-
+          Reclassified from the heuristic default. The operation is POST but
+          creates no server-side resource — it fetches and scores a third-party
+          public URL. The only side effect is quota decrement on success.
+      x-idempotency:
+        supported: false
+        note: No idempotency key mechanism is documented or implemented.
+      x-quota-headers:
+        - X-TinyOps-Quota-Limit
+        - X-TinyOps-Quota-Remaining
+      x-error-envelope:
+        format: proprietary
+        shape: '{"ok": false, "error": {"code": "...", "message": "..."}}'
+        note: Not RFC 9457. See errors/automation-preflight-api-problem-types.yml.
+  - target: $.paths['/direct/analyze'].post.responses['401']
+    update:
+      x-observed-code: direct_access_key_required
+      x-observed-message: A valid TinyOps API key or Gumroad license key is required.
+      x-observed-date: '2026-08-09'
+  - target: $.paths['/direct/analyze'].post.responses['403']
+    update:
+      x-apievangelist-note: >-
+        Overloaded status — covers both an expired API key and a robots-excluded
+        target. Only error.code distinguishes them, and that vocabulary is
+        unpublished.
+  - target: $.paths['/health'].get
+    update:
+      x-apievangelist-note: >-
+        Verified returning HTTP 200 unauthenticated on 2026-08-09. This is the
+        only availability signal the provider offers — there is no status page.

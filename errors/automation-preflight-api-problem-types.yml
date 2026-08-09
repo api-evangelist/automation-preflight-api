@@ -1,0 +1,87 @@
+generated: '2026-08-09'
+method: searched
+source: >-
+  Derived from the 4xx responses declared in
+  openapi/automation-preflight-api-direct-openapi.json and
+  openapi/automation-preflight-api-preflight-openapi.json, then confirmed against
+  the live error envelope observed on
+  POST https://preflight.tinyopsstudio.com/direct/analyze (2026-08-09).
+format: proprietary
+rfc9457: false
+note: >-
+  The API does NOT use RFC 9457 problem+json. Errors are returned as
+  application/json with a flat envelope: {"ok": false, "error": {"code": "...",
+  "message": "..."}}. Only one machine-readable code has been observed live
+  (direct_access_key_required) because the remaining conditions require a valid
+  key or a hostile target; the status codes and their meanings below are as the
+  provider declares them in the OpenAPI. Codes are not published as a reference
+  list, so the per-status "code" field is recorded only where observed.
+envelope:
+  discriminator: ok
+  path: error.code
+  message_path: error.message
+  content_type: application/json
+problems:
+  - status: 400
+    title: Invalid or prohibited target URL
+    meaning: >-
+      The supplied url is malformed, exceeds 2048 characters, or points at a
+      private / credential-bearing target the service refuses to fetch.
+    remediation: Supply a public, credential-free https URL under 2048 characters.
+    source_operation: openapi/automation-preflight-api-direct-openapi.json#analyzeIntegrationReadiness
+  - status: 401
+    title: Missing, invalid, or inactive API key
+    code: direct_access_key_required
+    message: A valid TinyOps API key or Gumroad license key is required.
+    observed: true
+    meaning: The X-TinyOps-API-Key header was absent, unrecognized, or not yet active.
+    remediation: >-
+      Send the Gumroad license key from the purchase receipt in the
+      X-TinyOps-API-Key header.
+    applies_to: POST /direct/analyze
+    source_operation: openapi/automation-preflight-api-direct-openapi.json#analyzeIntegrationReadiness
+  - status: 403
+    title: Expired API key, or target excluded by robots policy
+    meaning: >-
+      Two distinct conditions share this status: the key's 30-day access period
+      has elapsed, or the target site's robots policy excludes this crawler.
+    remediation: >-
+      Renew access, or choose a target that does not exclude the crawler. Inspect
+      error.code to tell the two apart.
+    source_operation: openapi/automation-preflight-api-direct-openapi.json#analyzeIntegrationReadiness
+  - status: 413
+    title: Request or target response exceeds a bounded size limit
+    meaning: The submitted request, or the fetched target page, exceeded the service's size bound.
+    remediation: Choose a smaller target page. The bound is not published as a byte figure.
+    source_operation: openapi/automation-preflight-api-direct-openapi.json#analyzeIntegrationReadiness
+  - status: 415
+    title: Target is not an HTML page
+    meaning: The target resolved to a non-HTML content type (PDF, JSON, image, download).
+    remediation: Supply a URL that serves a server-rendered HTML document.
+    source_operation: openapi/automation-preflight-api-direct-openapi.json#analyzeIntegrationReadiness
+  - status: 422
+    title: Target could not be resolved or fetched safely
+    meaning: >-
+      DNS did not resolve to a verified public address, or the fetch could not be
+      completed within the service's safety bounds.
+    remediation: Verify the host resolves publicly and responds without a login wall.
+    source_operation: openapi/automation-preflight-api-direct-openapi.json#analyzeIntegrationReadiness
+  - status: 429
+    title: API-key quota or service rate limit exceeded
+    meaning: >-
+      Either the 500-analysis purchase quota is exhausted / expired, or the
+      unpublished per-caller service rate limit was hit.
+    remediation: >-
+      Read X-TinyOps-Quota-Remaining to distinguish quota exhaustion from
+      throttling; back off and retry, or purchase additional calls.
+    source_operation: openapi/automation-preflight-api-direct-openapi.json#analyzeIntegrationReadiness
+gaps:
+  - >-
+    No published error-code reference. error.code is machine-readable but the
+    vocabulary is undocumented, so a client cannot branch on it defensively.
+  - >-
+    HTTP 403 is overloaded across two unrelated causes (expired key vs robots
+    exclusion) and can only be disambiguated by error.code.
+  - >-
+    The open POST /analyze contract declares no 401 and no 413, so its error
+    surface differs from the direct contract.

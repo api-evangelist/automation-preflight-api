@@ -1,0 +1,32 @@
+generated: '2026-08-09'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: tinyopsstudio.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov  5 23:30:35 2026 GMT
+  hsts: false
+- host: tinyops-automation-preflight.ancient-field-1495.workers.dev
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 27 22:42:27 2026 GMT
+  hsts: null
+- host: preflight.tinyopsstudio.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 28 03:55:06 2026 GMT
+  hsts: null
+domains:
+- domain: tinyopsstudio.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine
+- domain: workers.dev
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject

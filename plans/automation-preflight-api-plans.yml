@@ -1,0 +1,107 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: TinyOps Studio LLC
+providerId: automation-preflight-api
+created: '2026-08-09'
+modified: '2026-08-09'
+generated: '2026-08-09'
+method: searched
+tags:
+  - Automation
+  - Developer Tools
+  - Integration
+description: >-
+  The Automation Preflight API is sold three ways, none of them a subscription:
+  a $19 prepaid pack of 500 analyses redeemed with a Gumroad license key, pay-as-you-go
+  metered units on API.market, and a $25-per-run packaged "acceptance pack" on
+  AgenticTrade. There is no free tier on the record, but the open POST /analyze
+  endpoint answers anonymously and is effectively a try-before-you-buy surface.
+sources:
+  - https://tinyopsstudio.com/automation-preflight-api
+  - https://api.market/store/tinyopsstudio/automation-preflight
+  - https://agentictrade.io/marketplace/95ac69ef-684b-4cf9-85cf-8f3fad35654f
+currency: USD
+plans:
+  - id: automation-preflight-open
+    name: Open endpoint
+    type: free
+    description: >-
+      POST /analyze answers without an API key. Verified returning HTTP 200
+      anonymously on 2026-08-09. Not advertised as a plan by the provider;
+      recorded because it is observable, and it is bounded by the unpublished
+      service rate limit.
+    price: 0
+    entries:
+      - label: Anonymous analysis
+        name: analyze_open
+        type: metered
+        metric: request
+        limit: -1
+        timeFrame: usage
+        note: Subject to an unpublished service rate limit (429).
+  - id: automation-preflight-direct-500
+    name: Direct API starter — 500 calls
+    type: prepaid
+    description: >-
+      500 successful analyses of POST /direct/analyze, usable for 30 days from
+      purchase. Redeemed with the Gumroad license key shown in the receipt.
+    price: 19
+    unit: pack
+    access_period_days: 30
+    purchase_url: https://tinyopsstudio.gumroad.com/l/automation-preflight-api-500
+    entries:
+      - label: Successful analysis
+        name: direct_analyze
+        type: metered
+        metric: successful_analysis
+        limit: 500
+        timeFrame: 30 days
+        note: Quota consumed only after a successful analysis.
+  - id: automation-preflight-paygo
+    name: PayGo on API.market
+    type: usage-based
+    description: Pay-as-you-go metered access through the API.market marketplace.
+    price: 0.04
+    unit: call
+    purchase_url: https://api.market/store/tinyopsstudio/automation-preflight
+    entries:
+      - label: Analysis unit
+        name: paygo_unit
+        type: metered
+        metric: request
+        limit: -1
+        timeFrame: usage
+  - id: automation-preflight-acceptance-pack
+    name: Website Automation Acceptance Pack
+    type: per-run
+    description: >-
+      Packaged run of POST /acceptance-pack — preflight evidence plus launch
+      gates, acceptance tests, and a prioritized remediation backlog — sold per
+      run on AgenticTrade.
+    price: 25
+    unit: run
+    purchase_url: https://agentictrade.io/marketplace/95ac69ef-684b-4cf9-85cf-8f3fad35654f
+    entries:
+      - label: Acceptance pack run
+        name: acceptance_pack_run
+        type: metered
+        metric: run
+        limit: 1
+        timeFrame: usage
+distribution:
+  - marketplace: Gumroad
+    url: https://tinyopsstudio.gumroad.com/l/automation-preflight-api-500
+  - marketplace: API.market
+    url: https://api.market/store/tinyopsstudio/automation-preflight
+  - marketplace: AgenticTrade
+    url: https://agentictrade.io/marketplace/95ac69ef-684b-4cf9-85cf-8f3fad35654f
+  - marketplace: CurlShip
+    url: https://curlship.com
+refunds:
+  window_days: 7
+  conditions: accidental purchases, duplicate purchases, or materially broken downloads
+  url: https://tinyopsstudio.com/support
+gaps:
+  - No pricing page on the provider's own domain (https://tinyopsstudio.com/pricing returns 404); price lives on the product page and the marketplaces.
+  - The API.market listing rendered no pricing plans or endpoint count at probe time.

@@ -1,0 +1,61 @@
+generated: '2026-08-09'
+method: probed
+source: >-
+  https://tinyopsstudio.com/automation-preflight-api,
+  https://api.market/store/tinyopsstudio/automation-preflight, and a live
+  unauthenticated call to POST https://preflight.tinyopsstudio.com/analyze
+  (2026-08-09).
+description: >-
+  TinyOps publishes no sandbox in the conventional sense — there are no test
+  keys, no test/live mode separation, and no fixture values. What exists instead
+  is an open, unauthenticated production endpoint that anyone can call to see the
+  exact response contract before buying a key, plus a hosted playground on the
+  API.market listing.
+test_live_separation:
+  supported: false
+  note: >-
+    There is no test mode and no test-key prefix. The Gumroad license key is a
+    live key against production. Keys are not prefixed or otherwise
+    distinguishable.
+surfaces:
+  - name: Open analyze endpoint
+    type: unauthenticated-production
+    url: https://preflight.tinyopsstudio.com/analyze
+    method: POST
+    auth: none
+    verified:
+      status: 200
+      date: '2026-08-09'
+    note: >-
+      Returns the full evidence document with no key. This is the de-facto
+      sandbox: the response contract is identical to the metered
+      /direct/analyze endpoint, so a developer can integrate and test against it
+      before purchasing. Bounded by the unpublished service rate limit (429).
+    caution: >-
+      It is production and it fetches a real third-party URL. Point it at a
+      target you control or at a stable public page.
+  - name: API.market API Playground
+    type: hosted-console
+    url: https://api.market/store/tinyopsstudio/automation-preflight
+    auth: API.market account
+    note: >-
+      The marketplace listing exposes an "API Playground" control. Requires an
+      API.market login; the listing rendered no pricing plans or endpoint count
+      at probe time.
+safe_test_targets:
+  note: >-
+    The provider publishes no magic/fixture values. These are targets used by API
+    Evangelist during probing, not provider-sanctioned test data.
+  used_during_probe:
+    - url: https://example.com
+      result: HTTP 200, readiness.score 45, grade D
+test_clocks:
+  supported: false
+fixtures:
+  supported: false
+gaps:
+  - No test mode, test keys, or key prefixes — the purchased key is live-only.
+  - No published fixture or magic target values for exercising the 400/403/413/415/422 paths.
+  - >-
+    Because quota is consumed only on success, error paths are free to exercise —
+    but there is no documented way to deliberately trigger each one.

@@ -1,0 +1,102 @@
+generated: '2026-08-09'
+method: probed
+source: >-
+  Observed live response of POST https://preflight.tinyopsstudio.com/analyze with
+  body {"url":"https://example.com"} on 2026-08-09. The published OpenAPI
+  contracts declare responses without schemas, so the response model is recorded
+  from a real captured payload rather than derived from the spec.
+description: >-
+  The Automation Preflight API has no persistent resources — there is no
+  customer, account, or object graph to model. It is a single-shot evaluation
+  service: one URL in, one bounded evidence document out. What follows is the
+  structure of that evidence document, which is the API's real data model.
+persistence: none
+entities:
+  - name: PreflightReport
+    root: true
+    description: The complete response document for one analysis.
+    fields:
+      - {name: ok, type: boolean, description: Success discriminator.}
+      - {name: service, type: string, description: Service name constant.}
+      - {name: version, type: string, description: Service build version (1.1.0 observed).}
+      - {name: analyzed_at, type: string, format: date-time, description: UTC timestamp of the analysis.}
+    relationships:
+      - {has_one: Target, via: target}
+      - {has_one: RobotsAssessment, via: robots}
+      - {has_one: PageSummary, via: page}
+      - {has_many: Form, via: forms}
+      - {has_many: IntegrationLink, via: integration_links}
+      - {has_one: SecurityHeaders, via: security_headers}
+      - {has_one: Readiness, via: readiness}
+      - {has_many: string, via: structured_data_types, description: Detected schema.org / structured-data type names.}
+  - name: Target
+    description: What was actually fetched, after redirects.
+    fields:
+      - {name: requested_url, type: string}
+      - {name: final_url, type: string}
+      - {name: status, type: integer, description: HTTP status of the target.}
+      - {name: content_type, type: string}
+      - {name: latency_ms, type: integer}
+      - {name: body_bytes, type: integer}
+      - {name: redirect_count, type: integer}
+      - {name: redirects, type: array, description: Ordered redirect chain.}
+      - {name: public_dns_verified, type: boolean, description: Confirms the host resolved to public addresses.}
+      - {name: dns_address_counts.ipv4_count, type: integer}
+      - {name: dns_address_counts.ipv6_count, type: integer}
+  - name: RobotsAssessment
+    description: How the target's robots policy applies to this crawler.
+    fields:
+      - {name: status, type: string, description: "e.g. not_found, found"}
+      - {name: allowed, type: boolean}
+      - {name: matched_rule, type: string, nullable: true}
+      - {name: meta_restrictions, type: array, description: Restrictions found in meta robots tags.}
+      - {name: automation_restricted, type: boolean}
+  - name: PageSummary
+    description: Bounded structural summary of the page. Never raw HTML.
+    fields:
+      - {name: title, type: string}
+      - {name: canonical_url, type: string, nullable: true}
+      - {name: headings, type: array, description: "Objects of {level, text}."}
+      - {name: cta_labels, type: array, description: Call-to-action label strings.}
+  - name: Form
+    description: Bounded form structure. Field values are never returned.
+    fields:
+      - {name: '(structure)', type: object, description: Form shape as observed; empty array on the probed target, so field names are not asserted here.}
+  - name: IntegrationLink
+    description: Links signalling developer docs, integrations, CRM, commerce, payment, or automation paths.
+    fields:
+      - {name: '(structure)', type: object, description: Empty on the probed target; shape not asserted.}
+  - name: SecurityHeaders
+    description: Boolean presence map of response security headers on the target.
+    fields:
+      - {name: content_security_policy, type: boolean}
+      - {name: strict_transport_security, type: boolean}
+      - {name: x_content_type_options, type: boolean}
+      - {name: x_frame_options, type: boolean}
+      - {name: referrer_policy, type: boolean}
+      - {name: permissions_policy, type: boolean}
+      - {name: cross_origin_opener_policy, type: boolean}
+      - {name: cross_origin_resource_policy, type: boolean}
+  - name: Readiness
+    description: The deterministic scoring layer — the product's actual output.
+    fields:
+      - {name: score, type: integer, description: 0-100 (45 observed for example.com).}
+      - {name: grade, type: string, description: Letter grade (D observed).}
+      - {name: detected_signal_types, type: array}
+    relationships:
+      - {has_many: ReadinessComponent, via: components}
+  - name: ReadinessComponent
+    description: One scored component contributing to the readiness total.
+    fields:
+      - {name: name, type: string, description: "e.g. reachable_http_response"}
+      - {name: earned, type: integer}
+      - {name: possible, type: integer}
+notes:
+  - >-
+    Neither OpenAPI contract defines components.schemas — every response is
+    declared with a description only. This model is therefore observational and
+    is not a provider assertion.
+  - >-
+    Because forms[] and integration_links[] were empty for the probed target,
+    their element structure is deliberately left unasserted rather than guessed.
+render: null

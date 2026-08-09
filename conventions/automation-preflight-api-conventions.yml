@@ -1,0 +1,135 @@
+generated: '2026-08-09'
+method: searched
+source: >-
+  https://tinyopsstudio.com/automation-preflight-api (documentation), the two
+  published OpenAPI contracts, and live observed request/response behavior
+  against https://preflight.tinyopsstudio.com on 2026-08-09.
+description: >-
+  Cross-cutting request/response semantics for the Automation Preflight API:
+  authentication style, the two access tiers, the response envelope, quota
+  signaling, error shape, and the deliberate safety boundaries the service
+  enforces on every call. These are the runtime conventions the OpenAPI does not
+  express.
+
+base_url: https://preflight.tinyopsstudio.com
+base_url_mirror: https://tinyops-automation-preflight.ancient-field-1495.workers.dev
+api_style: REST over HTTPS, JSON request body, JSON response. No JavaScript execution, no raw HTML returned.
+
+access_tiers:
+  - tier: open
+    path: POST /analyze
+    auth: none
+    verified: '2026-08-09'
+    note: >-
+      Verified returning HTTP 200 anonymously. Subject to an unpublished service
+      rate limit (429).
+  - tier: direct
+    path: POST /direct/analyze
+    auth: X-TinyOps-API-Key
+    note: >-
+      Metered access. A call consumes quota only after a successful analysis.
+  - tier: acceptance-pack
+    path: POST /acceptance-pack
+    auth: none on the published contract; sold per-run via AgenticTrade
+    note: Returns preflight evidence plus launch gates, acceptance tests, and a remediation backlog.
+
+authentication:
+  scheme: API key in a request header
+  header: X-TinyOps-API-Key
+  key_source: >-
+    The Gumroad license key shown in the purchase receipt and download page, or a
+    key issued directly by TinyOps Studio.
+  docs: https://tinyopsstudio.com/automation-preflight-api
+  detail: authentication/automation-preflight-api-authentication.yml
+
+idempotency:
+  supported: false
+  reason: >-
+    No idempotency key header or parameter is documented or present in either
+    OpenAPI contract. The analyze operations are POST but are read-only with
+    respect to the caller's own state — they fetch and score a third-party public
+    URL and create no server-side resource — so a repeated call is naturally
+    safe to retry, but there is no replay/deduplication contract and no
+    Idempotency-Key mechanism. Recorded as absent rather than inferred.
+
+pagination:
+  supported: false
+  reason: Single-object responses only; there are no collection endpoints.
+
+response_envelope:
+  style: flat JSON object with a boolean discriminator
+  success:
+    ok: true
+    fields: [service, version, analyzed_at, target, robots, page, forms, structured_data_types, integration_links, security_headers, readiness]
+    detail: data-model/automation-preflight-api-data-model.yml
+  error:
+    ok: false
+    shape:
+      error:
+        code: machine-readable snake_case string
+        message: human-readable sentence
+    format: proprietary — NOT RFC 9457 (no application/problem+json)
+    observed_example:
+      code: direct_access_key_required
+      message: A valid TinyOps API key or Gumroad license key is required.
+    detail: errors/automation-preflight-api-problem-types.yml
+
+rate_limit_signaling:
+  quota_headers:
+    - X-TinyOps-Quota-Limit
+    - X-TinyOps-Quota-Remaining
+  throttle_status: 429
+  quota_accounting: Quota is decremented only after a successful analysis.
+  detail: rate-limits/automation-preflight-api-rate-limits.yml
+
+request_tracing:
+  header: X-Request-ID
+  evidence: >-
+    Advertised in the Access-Control-Allow-Headers response header observed on
+    POST https://preflight.tinyopsstudio.com/analyze. Not documented in the
+    OpenAPI or on the docs page; recorded as accepted-but-undocumented.
+  other_accepted_headers:
+    - X-Probe
+    - X-RapidAPI-Proxy-Secret
+    - X-ACF-Timestamp
+    - X-ACF-Signature
+    - X-ACF-Request-Id
+
+versioning:
+  scheme: none in the URL path — a single unversioned surface
+  current: 1.1.0
+  exposed_via: info.version in both OpenAPI contracts and the "version" field of GET /health
+  detail: lifecycle/automation-preflight-api-lifecycle.yml
+
+cors:
+  enabled: true
+  allow_headers: [Content-Type, X-Request-ID, X-Probe, X-TinyOps-API-Key, X-RapidAPI-Proxy-Secret, X-ACF-Timestamp, X-ACF-Signature, X-ACF-Request-Id]
+
+security_headers_returned:
+  x-content-type-options: nosniff
+
+boundaries:
+  description: >-
+    Constraints the service enforces on every request. These are contractual, not
+    advisory — the documentation states them as deliberate boundaries.
+  rules:
+    - Rejects private and credential-bearing target URLs (400).
+    - Honors robots exclusions on the target (403).
+    - Bounds the redirect chain and the response size (413).
+    - Accepts HTML targets only (415).
+    - Does not execute JavaScript.
+    - Does not return raw HTML or submitted form values.
+    - Never attempts login or CAPTCHA bypass.
+    - Target URL is capped at 2048 characters.
+  disclaimer: >-
+    Results reflect the public server-rendered page observed at request time and
+    do not prove that a third-party integration works. Not a security
+    certification.
+
+cross_references:
+  authentication: authentication/automation-preflight-api-authentication.yml
+  errors: errors/automation-preflight-api-problem-types.yml
+  lifecycle: lifecycle/automation-preflight-api-lifecycle.yml
+  rate_limits: rate-limits/automation-preflight-api-rate-limits.yml
+  plans: plans/automation-preflight-api-plans.yml
+  data_model: data-model/automation-preflight-api-data-model.yml

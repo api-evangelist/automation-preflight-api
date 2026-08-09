@@ -1,0 +1,64 @@
+generated: '2026-08-09'
+method: probed
+source: https://tinyopsstudio.com/.well-known/agent.json
+discovery:
+  path: /.well-known/agent.json
+  canonical: false          # pre-0.3 legacy path; /.well-known/agent-card.json returned 404
+  host: tinyopsstudio.com
+  lead: >-
+    Discovered via the provider's own llms.txt, which advertises the document as
+    "Identity card: https://tinyopsstudio.com/.well-known/agent.json".
+conformance:
+  spec: A2A 1.0.0
+  grade: flavored
+  protocol_version: null
+  preferred_transport: null
+  deviations:
+    - capabilities-not-object      # capabilities is an ARRAY of 15 free-text skill strings
+    - no-protocolVersion           # no protocolVersion member
+    - no-skills-array              # no skills[]; capability strings are not A2A skill objects
+    - non-a2a-schema               # declares $schema https://clawdmkt.com/agent-spec.json (ClawdMarket agent-spec), not A2A
+    - no-additionalInterfaces      # uses a free-form endpoints{} map instead of A2A transport interfaces
+  note: >-
+    This is a real, provider-served agent identity card, but it is written to the
+    ClawdMarket "agent-spec" schema rather than the A2A AgentCard schema. It is
+    recorded as flavored: it establishes an agent-discovery posture at the
+    well-known path, but an A2A client cannot consume it as an AgentCard.
+card:
+  name: TinyOps Studio Work Agent
+  url: https://tinyopsstudio.com
+  version: 1.1.0
+  type: agent
+  description: >-
+    Business automation and agent-operations work agent for public API/docs QA,
+    workflow debugging, data extraction, small code patches, and evidence-backed
+    research reports.
+  capabilities_count: 15
+  skills: 0
+  file: automation-preflight-api-agent-card.json
+  endpoints:
+    status: https://tinyopsstudio.com/api/agent/status
+    capabilities: https://tinyopsstudio.com/.well-known/agent.json
+    llms_txt: https://tinyopsstudio.com/llms.txt
+  marketplace_profiles:
+    - marketplace: ClawdMarket
+      profile_url: https://clawdmkt.com/registry/agent_1779973744956_ig3ujo
+scope_note: >-
+  The card describes TinyOps Studio LLC's company-wide work agent, not the
+  Automation Preflight API specifically. It is the operator-level agent identity
+  for the same company that publishes this API.
+x-evidence:
+  fetched: '2026-08-09'
+  url: https://tinyopsstudio.com/.well-known/agent.json
+  http_status: 200
+  content_type: application/json
+  bytes: 1245
+  also_probed:
+    - url: https://tinyopsstudio.com/.well-known/agent-card.json
+      http_status: 404
+    - url: https://tinyops-automation-preflight.ancient-field-1495.workers.dev/.well-known/agent-card.json
+      http_status: 404
+    - url: https://tinyops-automation-preflight.ancient-field-1495.workers.dev/.well-known/agent.json
+      http_status: 404
+    - url: https://tinyopsstudio.com/api/agent/status
+      http_status: 200

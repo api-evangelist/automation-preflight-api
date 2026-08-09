@@ -1,0 +1,45 @@
+{
+  "$comment": "Real captured request/response for GET /health (operationId health) and the 401 error envelope for POST /direct/analyze, observed 2026-08-09.",
+  "examples": [
+    {
+      "operationId": "health",
+      "request": {
+        "method": "GET",
+        "url": "https://preflight.tinyopsstudio.com/health"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "ok": true,
+          "service": "TinyOps Automation Integration Preflight",
+          "version": "1.1.0",
+          "status": "healthy"
+        }
+      }
+    },
+    {
+      "operationId": "analyzeIntegrationReadiness",
+      "description": "Direct (metered) endpoint called without an API key.",
+      "request": {
+        "method": "POST",
+        "url": "https://preflight.tinyopsstudio.com/direct/analyze",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "url": "https://example.com"
+        }
+      },
+      "response": {
+        "status": 401,
+        "body": {
+          "ok": false,
+          "error": {
+            "code": "direct_access_key_required",
+            "message": "A valid TinyOps API key or Gumroad license key is required."
+          }
+        }
+      }
+    }
+  ]
+}

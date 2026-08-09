@@ -1,0 +1,53 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: TinyOps Studio LLC
+providerId: automation-preflight-api
+created: '2026-08-09'
+modified: '2026-08-09'
+generated: '2026-08-09'
+method: searched
+tags:
+  - Automation
+  - Developer Tools
+description: >-
+  Access to the Automation Preflight API is metered as a purchased call
+  allowance rather than a per-second rate. A purchase grants 500 successful
+  analyses usable for 30 days, and quota is decremented only after a successful
+  analysis. Remaining allowance is returned on every call in the
+  X-TinyOps-Quota-Remaining header. A separate, unpublished service rate limit
+  also returns 429 on the open (unauthenticated) endpoint.
+sources:
+  - https://tinyopsstudio.com/automation-preflight-api
+  - https://tinyopsstudio.com/assets/automation-preflight-api-openapi.json
+headers:
+  quotaLimit: X-TinyOps-Quota-Limit
+  quotaRemaining: X-TinyOps-Quota-Remaining
+  requestId: X-Request-ID
+responseCodes:
+  throttled: 429
+limits:
+  - name: Direct access purchased allowance
+    scope: api_key
+    metric: successful_analyses
+    limit: 500
+    timeFrame: 30 days
+    applies_to: POST /direct/analyze
+    note: >-
+      Sold as a $19 pack of 500 successful analyses. The 30-day access period
+      begins at purchase. A call consumes quota only after a successful
+      analysis, so 4xx responses are not charged.
+  - name: Service rate limit
+    scope: caller
+    metric: requests
+    limit: null
+    timeFrame: unpublished
+    applies_to: POST /analyze, POST /acceptance-pack
+    note: >-
+      Both OpenAPI contracts declare a 429 "Rate limit exceeded" response on the
+      open endpoints, but no numeric threshold or window is published. Recorded
+      as present-but-unquantified rather than inferred.
+quota_accounting: successful-only
+gaps:
+  - The service rate limit is declared in the contract (429) but never quantified.
+  - No documented Retry-After header on 429.
