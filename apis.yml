@@ -24,37 +24,63 @@ tags:
   - quality-assurance
   - site-audit
 apis:
-  - name: Automation Preflight API
-    description: >-
-      REST API that returns bounded integration-preflight evidence for a supplied public URL. Three operations:
-      POST /analyze (open, no key, verified answering anonymously), POST /direct/analyze (metered, authenticated with
-      the X-TinyOps-API-Key header carrying a Gumroad license key), and POST /acceptance-pack (returns preflight
-      evidence plus launch gates, acceptance tests, and a remediation backlog). GET /health is unauthenticated.
-      Responses cover reachability, robots policy, page structure, forms, integration links, security headers, and a
-      deterministic readiness score and grade.
-    humanURL: https://tinyopsstudio.com/automation-preflight-api
-    baseURL: https://preflight.tinyopsstudio.com
-    tags:
-      - automation
-      - integration
-      - developer-tools
-      - readiness
-      - testing
-      - url-analysis
-      - agent-tools
-    properties:
-      - type: OpenAPI
-        url: openapi/automation-preflight-api-preflight-openapi.json
-      - type: OpenAPI
-        url: openapi/automation-preflight-api-direct-openapi.json
-      - type: OpenAPI Source
-        url: https://tinyopsstudio.com/assets/automation-preflight-api-openapi.json
-      - type: Documentation
-        url: https://tinyopsstudio.com/automation-preflight-api
-      - type: Overlay
-        url: overlays/automation-preflight-api-preflight-overlay.yaml
-      - type: Overlay
-        url: overlays/automation-preflight-api-direct-overlay.yaml
+- aid: automation-preflight-api:automation-preflight-api-acceptance-pack-api
+  name: Automation Preflight API Acceptance Pack API
+  description: >-
+    The Acceptance Pack API from Automation Preflight API — 1 operation(s) for acceptance pack.
+  humanURL: https://tinyopsstudio.com/automation-preflight-api
+  baseURL: https://preflight.tinyopsstudio.com
+  tags:
+  - Acceptance Pack
+  properties:
+  - type: OpenAPI
+    url: openapi/automation-preflight-api-acceptance-pack-api-openapi.yml
+  - type: OpenAPI Source
+    url: https://tinyopsstudio.com/assets/automation-preflight-api-openapi.json
+  - type: Documentation
+    url: https://tinyopsstudio.com/automation-preflight-api
+- aid: automation-preflight-api:automation-preflight-api-analyze-api
+  name: Automation Preflight API Analyze API
+  description: The Analyze API from Automation Preflight API — 1 operation(s) for analyze.
+  humanURL: https://tinyopsstudio.com/automation-preflight-api
+  baseURL: https://preflight.tinyopsstudio.com
+  tags:
+  - Analyze
+  properties:
+  - type: OpenAPI
+    url: openapi/automation-preflight-api-analyze-api-openapi.yml
+  - type: OpenAPI Source
+    url: https://tinyopsstudio.com/assets/automation-preflight-api-openapi.json
+  - type: Documentation
+    url: https://tinyopsstudio.com/automation-preflight-api
+- aid: automation-preflight-api:automation-preflight-api-direct-api
+  name: Automation Preflight API Direct API
+  description: The Direct API from Automation Preflight API — 1 operation(s) for direct.
+  humanURL: https://tinyopsstudio.com/automation-preflight-api
+  baseURL: https://preflight.tinyopsstudio.com
+  tags:
+  - Direct
+  properties:
+  - type: OpenAPI
+    url: openapi/automation-preflight-api-direct-api-openapi.yml
+  - type: OpenAPI Source
+    url: https://tinyopsstudio.com/assets/automation-preflight-api-openapi.json
+  - type: Documentation
+    url: https://tinyopsstudio.com/automation-preflight-api
+- aid: automation-preflight-api:automation-preflight-api-health-api
+  name: Automation Preflight API Health API
+  description: The Health API from Automation Preflight API — 1 operation(s) for health.
+  humanURL: https://tinyopsstudio.com/automation-preflight-api
+  baseURL: https://preflight.tinyopsstudio.com
+  tags:
+  - Health
+  properties:
+  - type: OpenAPI
+    url: openapi/automation-preflight-api-health-api-openapi.yml
+  - type: OpenAPI Source
+    url: https://tinyopsstudio.com/assets/automation-preflight-api-openapi.json
+  - type: Documentation
+    url: https://tinyopsstudio.com/automation-preflight-api
 maintainers:
   - FN: TinyOps Studio LLC
     email: support@tinyopsstudio.com
@@ -65,6 +91,10 @@ generated:
   confidence: 90
   at: '2026-07-29T04:42:25.191Z'
 common:
+- type: MCPServer
+  url: mcp/automation-preflight-api-mcp.yml
+- type: Overlay
+  url: overlays/automation-preflight-api-direct-overlay.yaml
 - type: DomainSecurity
   url: security/automation-preflight-api-domain-security.yml
 - type: AgenticAccess
