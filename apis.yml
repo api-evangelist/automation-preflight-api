@@ -8,7 +8,7 @@ description: >-
   which returns launch gates, acceptance tests, and a prioritized remediation backlog. Sold as a $19 pack of 500
   analyses, as pay-as-you-go units on API.market, and per-run on AgenticTrade.
 image: https://tinyopsstudio.com/assets/tinyops-logo-mark-v4.png
-url: https://automation-preflight-api.apievangelist.com/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/automation-preflight-api/refs/heads/main/apis.yml
 created: '2026-07-29'
 modified: '2026-08-09'
 specificationVersion: '0.21'
