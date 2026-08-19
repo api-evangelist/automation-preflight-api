@@ -1,0 +1,26 @@
+{
+  "provider": "automation-preflight-api",
+  "sources": [
+    "automation-preflight-api-acceptance-pack-api-openapi.yml",
+    "automation-preflight-api-analyze-api-openapi.yml",
+    "automation-preflight-api-direct-api-openapi.yml",
+    "automation-preflight-api-health-api-openapi.yml"
+  ],
+  "outputs": [
+    "automation-preflight-api-acceptance-pack-api-openapi.yml",
+    "automation-preflight-api-analyze-api-openapi.yml",
+    "automation-preflight-api-direct-api-openapi.yml",
+    "automation-preflight-api-health-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "automation-preflight-api-acceptance-pack-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "automation-preflight-api-analyze-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "automation-preflight-api-direct-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "automation-preflight-api-health-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": []
+}

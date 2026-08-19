@@ -1,0 +1,43 @@
+openapi: 3.2.0
+info:
+  title: TinyOps Automation Integration Preflight Analyze API
+  version: 1.1.0
+  description: Inspect a public page for deterministic automation and integration-readiness evidence.
+servers:
+- url: https://preflight.tinyopsstudio.com
+tags:
+- name: Analyze
+paths:
+  /analyze:
+    post:
+      operationId: analyzeIntegrationReadiness
+      summary: Analyze a public page
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required:
+              - url
+              properties:
+                url:
+                  type: string
+                  format: uri
+                  maxLength: 2048
+      responses:
+        '200':
+          description: Bounded integration-preflight evidence
+        '400':
+          description: Invalid or prohibited target URL
+        '403':
+          description: Target explicitly excludes this crawler
+        '415':
+          description: Target is not an HTML page
+        '422':
+          description: Target could not be resolved safely
+        '429':
+          description: Rate limit exceeded
+      tags:
+      - Analyze

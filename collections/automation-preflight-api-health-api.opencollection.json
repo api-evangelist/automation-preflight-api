@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automation Preflight Health API",
+    "version": "1.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Health",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check service health",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://preflight.tinyopsstudio.com/health"
+          },
+          "docs": "Check service health"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

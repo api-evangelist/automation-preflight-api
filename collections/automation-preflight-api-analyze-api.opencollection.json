@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TinyOps Automation Integration Preflight Analyze API",
+    "version": "1.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Analyze",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Analyze a public page",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://preflight.tinyopsstudio.com/analyze",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Analyze a public page"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

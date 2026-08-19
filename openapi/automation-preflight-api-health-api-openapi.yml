@@ -1,0 +1,31 @@
+openapi: 3.2.0
+info:
+  title: Automation Preflight Health API
+  version: 1.1.0
+  description: 'Operations tagged Health across 2 of this provider''s published API definitions: automation-preflight-api-direct-openapi.json, automation-preflight-api-preflight-openapi.json. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://preflight.tinyopsstudio.com
+tags:
+- name: Health
+paths:
+  /health:
+    servers:
+    - url: https://preflight.tinyopsstudio.com
+    get:
+      operationId: health
+      summary: Check service health
+      responses:
+        '200':
+          description: Service health
+      tags:
+      - Health
+components:
+  securitySchemes:
+    TinyOpsApiKey:
+      type: apiKey
+      in: header
+      name: X-TinyOps-API-Key
+      description: Use the Gumroad license key shown in the purchase receipt and download page, or a key issued directly by TinyOps Studio.
+x-refined-from:
+- automation-preflight-api-direct-openapi.json
+- automation-preflight-api-preflight-openapi.json

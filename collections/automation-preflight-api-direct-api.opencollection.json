@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TinyOps Automation Integration Preflight - Access Direct API",
+    "version": "1.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Direct",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Analyze a public page",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://preflight.tinyopsstudio.com/direct/analyze",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-TinyOps-API-Key",
+              "value": "{{X-TinyOps-API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Analyze a public page"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

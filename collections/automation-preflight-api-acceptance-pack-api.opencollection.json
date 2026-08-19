@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TinyOps Automation Integration Preflight Acceptance Pack API",
+    "version": "1.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Acceptance Pack",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Build an implementation-ready automation acceptance pack",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://preflight.tinyopsstudio.com/acceptance-pack",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Build an implementation-ready automation acceptance pack"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
