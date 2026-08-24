@@ -6,11 +6,12 @@ description: >-
   JavaScript, and does not return raw HTML. Three operations are published: an open POST /analyze that answers
   without a key, a metered POST /direct/analyze authenticated with a Gumroad license key, and POST /acceptance-pack
   which returns launch gates, acceptance tests, and a prioritized remediation backlog. Sold as a $19 pack of 500
-  analyses, as pay-as-you-go units on API.market, and per-run on AgenticTrade.
+  analyses, as pay-as-you-go units on API.market, per-run on AgenticTrade, and as a separately licensed
+  deployment-ready source bundle for one organization.
 image: https://tinyopsstudio.com/assets/tinyops-logo-mark-v4.png
 url: https://raw.githubusercontent.com/api-evangelist/automation-preflight-api/refs/heads/main/apis.yml
 created: '2026-07-29'
-modified: '2026-08-09'
+modified: '2026-08-24'
 specificationVersion: '0.23'
 tags:
   - Automation
@@ -113,15 +114,19 @@ common:
 - type: Authentication
   url: authentication/automation-preflight-api-authentication.yml
 - type: DeveloperPortal
-  url: https://tinyopsstudio.com/product
+  url: https://tinyopsstudio.com/automation-preflight-api
 - type: Support
   url: https://tinyopsstudio.com/support
 - type: GitHubOrganization
   url: https://github.com/tinyopsstudio
+- type: GitHubRepository
+  url: https://github.com/tinyopsstudio/automation-preflight-api-demo
 - type: Pricing
   url: https://api.market/store/tinyopsstudio/automation-preflight
 - type: SignUp
   url: https://tinyopsstudio.gumroad.com/l/automation-preflight-api-500
+- type: SourceLicense
+  url: https://tinyopsstudio.com/automation-preflight-api-source-license
 - type: TermsOfService
   url: https://tinyopsstudio.com/terms
 - type: PrivacyPolicy
