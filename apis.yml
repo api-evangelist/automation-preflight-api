@@ -7,6 +7,18 @@ description: >-
   without a key, a metered POST /direct/analyze authenticated with a Gumroad license key, and POST /acceptance-pack
   which returns launch gates, acceptance tests, and a prioritized remediation backlog. Sold as a $19 pack of 500
   analyses, as pay-as-you-go units on API.market, and per-run on AgenticTrade.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://tinyopsstudio.com/assets/tinyops-logo-mark-v4.png
 url: https://raw.githubusercontent.com/api-evangelist/automation-preflight-api/refs/heads/main/apis.yml
 created: '2026-07-29'
