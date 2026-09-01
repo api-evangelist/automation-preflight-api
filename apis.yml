@@ -25,16 +25,16 @@ created: '2026-07-29'
 modified: '2026-08-09'
 specificationVersion: '0.23'
 tags:
-  - automation
-  - integration
+  - Automation
+  - Integration
   - Developer Tools
-  - readiness
+  - Readiness
   - Testing
-  - url-analysis
+  - URL Analysis
   - Web Scraping
-  - agent-tools
-  - quality-assurance
-  - site-audit
+  - Agent Tools
+  - Quality Assurance
+  - Site Audit
 tags_raw:
   - automation
   - integration
