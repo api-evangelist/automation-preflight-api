@@ -9,8 +9,6 @@ tags:
 - name: Health
 paths:
   /health:
-    servers:
-    - url: https://preflight.tinyopsstudio.com
     get:
       operationId: health
       summary: Check service health
@@ -19,6 +17,8 @@ paths:
           description: Service health
       tags:
       - Health
+    servers:
+    - url: https://preflight.tinyopsstudio.com
 components:
   securitySchemes:
     TinyOpsApiKey:
