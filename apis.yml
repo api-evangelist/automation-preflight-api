@@ -51,6 +51,7 @@ tags:
   - Agent Tools
   - Quality Assurance
   - Site Audit
+  - A2A
 tags_raw:
   - automation
   - integration
@@ -62,6 +63,7 @@ tags_raw:
   - agent-tools
   - quality-assurance
   - site-audit
+  - A2A
 apis:
 - aid: automation-preflight-api:automation-preflight-api-acceptance-pack-api
   name: Automation Preflight API Acceptance Pack API
