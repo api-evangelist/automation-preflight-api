@@ -1,0 +1,8 @@
+generated: '2026-09-28'
+method: none
+# x-correction-request
+# Provider PR #1 requested updates:
+# DeveloperPortal should be https://tinyopsstudio.com/automation-preflight-api (not /product)
+# GitHubRepository https://github.com/tinyopsstudio/automation-preflight-api-demo (public, MIT, openapi.json and examples/)
+# source license offer https://tinyopsstudio.com/automation-preflight-api-source-license recorded as an x- property (non-standard)
+# description sentence about the source bundle from the PR

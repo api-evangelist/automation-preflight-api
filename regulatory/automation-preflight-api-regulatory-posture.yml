@@ -1,0 +1,19 @@
+generated: '2026-09-28'
+method: probed
+source:
+  - https://tinyopsstudio.com/privacy
+signals:
+  data_retention:
+    evidence:
+      - source: https://tinyopsstudio.com/privacy
+        http_status: 200
+        fetched: "true"
+        quote: "Engagement events are retained for up to 90 days."
+    note: Retains engagement event data for 90 days.
+  subprocessors:
+    evidence:
+      - source: https://tinyopsstudio.com/privacy
+        http_status: 200
+        fetched: "true"
+        quote: "Information may be shared with checkout, payment, email, hosting, storage, analytics, and automation providers only as needed to operate the service."
+    note: Lists categories of subprocessors.

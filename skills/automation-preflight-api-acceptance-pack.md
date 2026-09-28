@@ -1,5 +1,5 @@
 ---
-name: Build an automation acceptance pack for a target site
+name: automation-preflight-api-acceptance-pack
 description: >-
   Turn a public URL plus a stated objective into an implementation-ready handoff:
   preflight evidence, launch gates, acceptance tests, and a prioritized remediation

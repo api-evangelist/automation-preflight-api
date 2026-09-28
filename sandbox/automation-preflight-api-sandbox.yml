@@ -11,6 +11,8 @@ description: >-
   is an open, unauthenticated production endpoint that anyone can call to see the
   exact response contract before buying a key, plus a hosted playground on the
   API.market listing.
+
+docs: ""
 test_live_separation:
   supported: false
   note: >-

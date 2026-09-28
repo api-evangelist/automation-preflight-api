@@ -44,6 +44,7 @@ authentication:
 
 idempotency:
   supported: false
+  coverage: none
   reason: >-
     No idempotency key header or parameter is documented or present in either
     OpenAPI contract. The analyze operations are POST but are read-only with

@@ -1,0 +1,133 @@
+generated: '2026-09-28'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 10
+  own: 4
+  other_domain: 5
+  platform: 1
+  roles:
+  - api
+  - docs
+  - identity
+  - marketing
+  - other
+  - source
+  - website
+hosts:
+- host: api.api.market
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: api.market
+  role: api
+  relation: other-domain
+- host: api.gumroad.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: gumroad.com
+  role: api
+  relation: other-domain
+- host: api.market
+  found_by:
+  - pointer
+  - probed
+  - well-known
+  types:
+  - Pricing
+  serves: []
+  registrable_domain: api.market
+  role: marketing
+  relation: other-domain
+- host: api.tinyopsstudio.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: tinyopsstudio.com
+  role: api
+  relation: own
+- host: docs.api.market
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - namespace-probe
+  - well-known
+  - vendor-detect
+  types:
+  - Documentation
+  serves:
+  - cdn
+  - hosting
+  title: Welcome to API.market | API.Market
+  status: 200
+  vendor: cloudflare
+  registrable_domain: api.market
+  role: docs
+  relation: other-domain
+- host: github.com
+  found_by:
+  - pointer
+  types:
+  - GitHubOrganization
+  serves: []
+  registrable_domain: github.com
+  role: source
+  relation: platform
+- host: preflight.tinyopsstudio.com
+  found_by:
+  - apis[]
+  - probed
+  - contract-discovery
+  - well-known
+  types: []
+  serves:
+  - api
+  registrable_domain: tinyopsstudio.com
+  role: other
+  relation: own
+- host: receiving-check.tinyopsstudio.com
+  found_by:
+  - probed
+  - site-links
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: tinyopsstudio.com
+  role: other
+  relation: own
+- host: tinyopsstudio.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - contract-discovery
+  - well-known
+  types:
+  - Website
+  - DeveloperPortal
+  - Support
+  - TermsOfService
+  - PrivacyPolicy
+  - LLMsTxt Source
+  serves:
+  - docs
+  registrable_domain: tinyopsstudio.com
+  role: website
+  relation: own
+- host: tinyopsstudio.gumroad.com
+  found_by:
+  - pointer
+  - probed
+  - well-known
+  types:
+  - SignUp
+  serves: []
+  registrable_domain: gumroad.com
+  role: identity
+  relation: other-domain

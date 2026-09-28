@@ -1,5 +1,5 @@
 ---
-name: Run an integration preflight on a public URL
+name: automation-preflight-api-integration-preflight
 description: >-
   Given a public web page, fetch bounded integration-readiness evidence — reachability,
   robots policy, page structure, forms, integration links, security headers and a

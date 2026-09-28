@@ -14,22 +14,54 @@ Contact: support@tinyopsstudio.com
 - Automation Rescue Sprint: https://tinyopsstudio.com/automation-rescue-sprint
 - AI Readiness & Governance Sprint: https://tinyopsstudio.com/ai-readiness-governance-sprint
 - Workflow Audit: https://tinyopsstudio.com/workflow-audit
-- 48-Hour Reporting Gap Scan ($149): https://whop.com/48-hour-reporting-gap-scan/
+- SponsorOps Workflow Audit ($99): https://tinyopsstudio.com/sponsorops
+- 48-Hour Reporting Gap Scan ($149): https://whop.com/checkout/plan_sVZawMqeXT9Ir
 - Excel or CSV Import Fix ($99): https://www.freelancer.com/service/excel/i-will-fix-one-excel-or-csv-data-import
+- Excel Sales Forecast Model Build ($499): https://tinyopsstudio.com/excel-sales-forecast-sample
 - Automation or API Workflow Audit + Fix ($149): https://www.freelancer.com/service/test_automation/i-will-fix-one-automation-or-api-workflow
-- Done-for-You Business Automation ($499): https://reworkdigital.io/services/i-will-build-one-business-automation-workflow-58/
-- Focused AI Operations Assistant ($999): https://reworkdigital.io/services/i-will-build-your-focused-ai-ops-assistant-57/
+- Stripe Failed Payment Recovery Workflow ($499): https://tinyopsstudio.gumroad.com/l/stripe-failed-payment-recovery-workflow
+- Digital Product Launch System ($349): https://www.freelancer.com/service/market_research/i-will-launch-your-digital-product-business
+- Market Analysis Scope Brief ($99): https://tinyopsstudio.gumroad.com/l/market-analysis-scope-brief
+- Source-Backed Market Analysis Report ($525): https://tinyopsstudio.com/source-backed-market-analysis
+- Free Automation Platform Decision Brief Sample: https://tinyopsstudio.com/sample-automation-platform-decision-brief
+- Automation Integration Preflight x402 API ($0.03 analysis, $0.10 acceptance pack, free sample): https://tinyopsstudio.com/automation-preflight-api
 - AI Agent Cost Audit: https://tinyopsstudio.com/ai-agent-cost-audit
+- Support LLM Fine-Tuning and Evaluation ($4,500 total, $2,500 kickoff deposit available): https://tinyopsstudio.com/support-llm-fine-tuning
 - OpenClaw VPS Deployment Kit ($29): https://tinyopsstudio.com/openclaw-vps-deployment-kit
 - OpenClaw VPS Agent Host Setup ($450): https://tinyopsstudio.com/openclaw-vps-agent-host-setup
 - Shopify Subscription Renewal Recovery Matrix ($149): https://tinyopsstudio.com/shopify-subscription-renewal-recovery
 - Shopify Order Printer Barcode Template Build ($149): https://tinyopsstudio.com/shopify-order-printer-barcode-template
 - Hawaii DOTAX RFP Response Support: https://tinyopsstudio.com/hawaii-dotax-rfp-response-support
 - RFP Compliance Gap Scan ($149): https://tinyopsstudio.com/rfp-compliance-gap-scan
-- Proposal Response Accelerator ($2,500): https://whop.com/proposal-response-accelerator/
+- OHSU Oracle EBS AP Automation RFI Response Checklist: https://tinyopsstudio.com/ohsu-oracle-ebs-ap-automation-rfi-response-checklist
+- Alaska ATLAS Maritime Crew Dispatch RFP Response Checklist: https://tinyopsstudio.com/alaska-atlas-maritime-crew-dispatch-rfp-response-checklist
+- Santa Monica Onboard Bus Video Surveillance RFP Response Checklist: https://tinyopsstudio.com/santa-monica-onboard-bus-video-surveillance-rfp-response-checklist
+- Phoenix Transit OCC and Data Collection RFP Response Checklist: https://tinyopsstudio.com/phoenix-transit-occ-data-collection-rfp-response-checklist
+- Cypress Budget Software RFP Response Checklist: https://tinyopsstudio.com/cypress-budget-software-rfp-response-checklist
+- Long Beach Digital Automation Platform RFP Response Checklist: https://tinyopsstudio.com/long-beach-digital-automation-rfp-response-checklist
+- Sheridan Municipal Finance Software RFP Response Checklist: https://tinyopsstudio.com/sheridan-municipal-finance-software-rfp-response-checklist
+- U.S. Senate Hoteling and Room Scheduling RFQ Response Checklist: https://tinyopsstudio.com/us-senate-hoteling-scheduling-rfq-response-checklist
+- MWDOC D365 Post-Implementation Support RFQ Response Checklist: https://tinyopsstudio.com/mwdoc-d365-post-implementation-support-rfq-response-checklist
+- California Courts Voice Translator RFP Response Checklist: https://tinyopsstudio.com/california-courts-voice-translator-rfp-response-checklist
+- OHSU Microsoft 365 Backup RFP Response Checklist: https://tinyopsstudio.com/ohsu-microsoft-365-backup-rfp-response-checklist
+- MSU Medical Education Platform RFP Response Checklist: https://tinyopsstudio.com/msu-medical-education-platform-rfp-response-checklist
+- MSU CPaaS RFP Response Checklist: https://tinyopsstudio.com/msu-cpaas-rfp-response-checklist
+- RFP Final Compliance Review ($149): https://www.freelancer.com/service/proposal_bid_writing/i-will-review-your-rfp-draft-for-compliance
+- RFP Pre-Tender Accelerator ($750): https://whop.com/checkout/plan_wXbkVkOA0z9Hl
+- RFP Response Control Workflow ($750): https://reworkdigital.io/services/i-will-build-your-rfp-response-control-workflow-57/
+- Proposal Response Accelerator ($2,500): https://whop.com/checkout/plan_D3cUfXROgp1u7
+- Website Migration and Accessibility QA Sprint ($1,500): https://tinyopsstudio.com/website-migration-launch-qa-sprint
+- Joomla Milestones 8a and 8b Accessibility CI Workshares: https://tinyopsstudio.com/osm-joomla-accessibility-ci-dashboard-workshare
+- CHFA Website Accessibility and Migration QA Workshare: https://tinyopsstudio.com/chfa-website-accessibility-migration-qa-workshare
+- Pitt Community College Website and Intranet QA Workshare: https://tinyopsstudio.com/pitt-community-college-website-intranet-qa-workshare
+- Visit Amarillo Website Migration and QA Workshare: https://tinyopsstudio.com/visit-amarillo-website-migration-qa-workshare
+- Excelsior Springs Website Migration and Accessibility QA Workshare: https://tinyopsstudio.com/excelsior-springs-website-migration-accessibility-qa-workshare
+- Cherriots Website Migration and Accessibility QA Workshare: https://tinyopsstudio.com/cherriots-website-migration-accessibility-qa-workshare
+- Meridian Website Migration and Integration QA Workshare: https://tinyopsstudio.com/meridian-website-migration-integration-qa-workshare
+- IEA Bioenergy Website Migration and QA Workshare: https://tinyopsstudio.com/iea-bioenergy-website-migration-qa-workshare
 - Ontario Health Workflow RFP Response Checklist: https://tinyopsstudio.com/ontario-health-workflow-response-checklist
 - Calgary Security Incident RFP Response Checklist: https://tinyopsstudio.com/calgary-security-incident-management-response-checklist
-- Troutmate Starter Site for Sale ($99): https://tinyopsstudio.com/troutmate-starter-site-for-sale
+- Troutmate Starter Site for Sale ($199): https://tinyopsstudio.com/troutmate-starter-site-for-sale
 - Tarrant County F2026148 Response Checklist: https://tinyopsstudio.com/tarrant-county-f2026148-response-checklist
 - FENZ RFP 5251 Fleet Cellular Installations Checklist: https://tinyopsstudio.com/fenz-rfp-5251-fleet-cellular-installations-checklist
 - Stripe to QuickBooks payout proof: https://tinyopsstudio.com/stripe-quickbooks-payout-reconciliation-demo
