@@ -91,6 +91,16 @@ entities:
       - {name: name, type: string, description: "e.g. reachable_http_response"}
       - {name: earned, type: integer}
       - {name: possible, type: integer}
+relationships:
+  - {from: PreflightReport, to: Target, type: has_one, via: target}
+  - {from: PreflightReport, to: RobotsAssessment, type: has_one, via: robots}
+  - {from: PreflightReport, to: PageSummary, type: has_one, via: page}
+  - {from: PreflightReport, to: Form, type: has_many, via: forms}
+  - {from: PreflightReport, to: IntegrationLink, type: has_many, via: integration_links}
+  - {from: PreflightReport, to: SecurityHeaders, type: has_one, via: security_headers}
+  - {from: PreflightReport, to: Readiness, type: has_one, via: readiness}
+  - {from: PreflightReport, to: string, type: has_many, via: structured_data_types}
+  - {from: Readiness, to: ReadinessComponent, type: has_many, via: components}
 notes:
   - >-
     Neither OpenAPI contract defines components.schemas — every response is

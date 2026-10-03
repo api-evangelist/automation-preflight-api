@@ -214,7 +214,7 @@ generated:
 
 x-coverage:
   state: covered
-  reason: null
+  reason: covered
   detail: >-
     Fully readable. Two distinct OpenAPI contracts were harvested verbatim — the
     3.0.3 Direct Access contract from the docs host and a 3.1.0 contract served at
