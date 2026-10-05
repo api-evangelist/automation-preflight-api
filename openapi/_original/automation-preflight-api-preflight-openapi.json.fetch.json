@@ -1,0 +1,12 @@
+{
+ "url": "https://preflight.tinyopsstudio.com/openapi.json",
+ "requested_url": "https://preflight.tinyopsstudio.com/openapi.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 1838,
+ "sha256": "bb7d2dba4831c90327cc4788fbd87cc38fea5319a65e2e118c8b9baef4b5f10b",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
