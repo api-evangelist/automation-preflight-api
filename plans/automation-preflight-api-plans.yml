@@ -106,3 +106,44 @@ refunds:
 gaps:
   - No pricing page on the provider's own domain (https://tinyopsstudio.com/pricing returns 404); price lives on the product page and the marketplaces.
   - The API.market listing rendered no pricing plans or endpoint count at probe time.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - metered
+  - prepaid
+  units:
+  - request
+  plans:
+  - name: Open endpoint
+    access: free
+    model: metered
+    model_how: derived
+    units:
+    - request
+    periods:
+    - per-use
+  - name: Direct API starter — 500 calls
+    access: other
+    model: prepaid
+    model_how: stated
+    units:
+    - other
+    periods:
+    - other
+  - name: PayGo on API.market
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - request
+    periods:
+    - per-use
+  - name: Website Automation Acceptance Pack
+    access: other
+    model: metered
+    model_how: derived
+    units:
+    - request
+    periods:
+    - per-use
