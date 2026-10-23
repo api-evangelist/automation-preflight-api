@@ -41,3 +41,9 @@ paths:
           description: Rate limit exceeded
       tags:
       - Analyze
+x-provenance:
+  method: harvested
+  publisher: Automation Preflight API
+  source: https://preflight.tinyopsstudio.com/openapi.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)

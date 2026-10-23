@@ -56,3 +56,9 @@ components:
       in: header
       name: X-TinyOps-API-Key
       description: Use the Gumroad license key shown in the purchase receipt and download page, or a key issued directly by TinyOps Studio.
+x-provenance:
+  method: harvested
+  publisher: Automation Preflight API
+  source: https://tinyopsstudio.com/assets/automation-preflight-api-openapi.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
