@@ -1,4 +1,4 @@
-# Automation Preflight API (automation-preflight-api)
+# Automation Preflight API
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,138 +64,150 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-A self-serve REST API by TinyOps Studio LLC that inspects a public URL and returns deterministic, bounded JSON integration-readiness evidence across reachability, integration surface, and readiness scoring. It rejects private/credential-bearing targets, honors robots exclusions, bounds redirects and response sizes, does not execute JavaScript, and does not return raw HTML. Three operations are published: an open POST /analyze that answers without a key, a metered POST /direct/analyze authenticated with a Gumroad license key, and POST /acceptance-pack which returns launch gates, acceptance tests, and a prioritized remediation backlog. Sold as a $19 pack of 500 analyses, as pay-as-you-go units on API.market, and per-run on AgenticTrade.
+A self-serve REST API by TinyOps Studio LLC that inspects a public URL and returns deterministic, bounded JSON integration-readiness evidence across reachability, integration surface, and readiness scoring. It rejects private/credential-bearing targets, honors robots exclusions, bounds redirects and response sizes, does not execute JavaScript, and does not return raw HTML. Three operations are published: an open POST /analyze that answers without a key, a metered POST /direct/analyze authenticated with a Gumroad license key, and POST /acceptance-pack which returns launch gates, acceptance tests, and a prioritized remediation backlog. Sold as a $19 pack of 500 analyses, as pay-as-you-go units on API.market, per-run on AgenticTrade, and as a separately licensed source bundle (the Cloudflare Workers implementation, a $2,500 one-time non-exclusive license for one organization).
 
-**APIs.json:** [https://automation-preflight-api.apievangelist.com/apis.yml](https://automation-preflight-api.apievangelist.com/apis.yml)
+**Areas:** Automation · Integration · Developer Tools · Readiness · Testing · URL Analysis · Web Scraping · Agent Tools · Quality Assurance · Site Audit · A2A
 
-## Tags
+## Automation Preflight API on APIs.io
 
-- automation
-- integration
-- developer-tools
-- readiness
-- testing
-- url-analysis
-- web-scraping
-- agent-tools
-- quality-assurance
-- site-audit
+Everything profiled for Automation Preflight API is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/automation-preflight-api/](https://apis.io/providers/automation-preflight-api/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (4)
 
-- **Created:** 2026-07-29
-- **Modified:** 2026-08-09
+- [Automation Preflight API Acceptance Pack API](https://apis.io/apis/automation-preflight-api/automation-preflight-api-acceptance-pack-api/) — The Acceptance Pack API from Automation Preflight API — 1 operation(s) for acceptance pack.
+- [Automation Preflight API Analyze API](https://apis.io/apis/automation-preflight-api/automation-preflight-api-analyze-api/) — The Analyze API from Automation Preflight API — 1 operation(s) for analyze.
+- [Automation Preflight API Direct API](https://apis.io/apis/automation-preflight-api/automation-preflight-api-direct-api/) — The Direct API from Automation Preflight API — 1 operation(s) for direct.
+- [Automation Preflight API Health API](https://apis.io/apis/automation-preflight-api/automation-preflight-api-health-api/) — The Health API from Automation Preflight API — 1 operation(s) for health.
 
-## APIs
+### Published properties
 
-### Automation Preflight API Acceptance Pack API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-The Acceptance Pack API from Automation Preflight API — 1 operation(s) for acceptance pack.
+#### MCP servers (1)
 
-- **Human URL:** [https://tinyopsstudio.com/automation-preflight-api](https://tinyopsstudio.com/automation-preflight-api)
-- **Base URL:** `https://preflight.tinyopsstudio.com`
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags
+- [automation-preflight](https://apis.io/servers/automation-preflight-api/automation-preflight/)
 
-- Acceptance Pack
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [OpenAPI](openapi/automation-preflight-api-acceptance-pack-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/automation-preflight-api-acceptance-pack-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/automation-preflight-api-acceptance-pack-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Open A P I  Source](https://tinyopsstudio.com/assets/automation-preflight-api-openapi.json)
-- [Documentation](https://tinyopsstudio.com/automation-preflight-api)
+- [Automation Preflight Api Agentic Access](https://apis.io/agentic-access/automation-preflight-api/automation-preflight-api-agentic-access/)
 
-### Automation Preflight API Analyze API
+#### Examples (2)
 
-The Analyze API from Automation Preflight API — 1 operation(s) for analyze.
+Example requests and responses.
 
-- **Human URL:** [https://tinyopsstudio.com/automation-preflight-api](https://tinyopsstudio.com/automation-preflight-api)
-- **Base URL:** `https://preflight.tinyopsstudio.com`
+- [Automation Preflight Api Analyze Example](https://apis.io/examples/automation-preflight-api/automation-preflight-api-analyze-example/)
+- [Automation Preflight Api Health And Errors Example](https://apis.io/examples/automation-preflight-api/automation-preflight-api-health-and-errors-example/)
 
-#### Tags
+#### Collections (4)
 
-- Analyze
+Postman and Open Collection request collections.
 
-#### Properties
+- [TinyOps Automation Integration Preflight Acceptance Pack API](https://apis.io/collections/automation-preflight-api/open-automation-preflight-api-acceptance-pack-api/)
+- [TinyOps Automation Integration Preflight Analyze API](https://apis.io/collections/automation-preflight-api/open-automation-preflight-api-analyze-api/)
+- [TinyOps Automation Integration Preflight - Access Direct API](https://apis.io/collections/automation-preflight-api/open-automation-preflight-api-direct-api/)
+- [Automation Preflight Health API](https://apis.io/collections/automation-preflight-api/open-automation-preflight-api-health-api/)
 
-- [OpenAPI](openapi/automation-preflight-api-analyze-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/automation-preflight-api-analyze-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/automation-preflight-api-analyze-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Open A P I  Source](https://tinyopsstudio.com/assets/automation-preflight-api-openapi.json)
-- [Documentation](https://tinyopsstudio.com/automation-preflight-api)
+#### Overlays (3)
 
-### Automation Preflight API Direct API
+OpenAPI overlays, including conversational phrasing for each operation.
 
-The Direct API from Automation Preflight API — 1 operation(s) for direct.
+- [Automation Preflight Api Correction](https://apis.io/overlays/automation-preflight-api/automation-preflight-api-correction/)
+- [Automation Preflight Api Direct Overlay](https://apis.io/overlays/automation-preflight-api/automation-preflight-api-direct-overlay/)
+- [Automation Preflight Api Preflight Overlay](https://apis.io/overlays/automation-preflight-api/automation-preflight-api-preflight-overlay/)
 
-- **Human URL:** [https://tinyopsstudio.com/automation-preflight-api](https://tinyopsstudio.com/automation-preflight-api)
-- **Base URL:** `https://preflight.tinyopsstudio.com`
+#### Governance rules (1)
 
-#### Tags
+Spectral rulesets for the provider's contracts.
 
-- Direct
+- [Automation Preflight API API Rules](https://apis.io/rules/automation-preflight-api/automation-preflight-api-rules/)
 
-#### Properties
+#### Security (2)
 
-- [OpenAPI](openapi/automation-preflight-api-direct-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/automation-preflight-api-direct-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/automation-preflight-api-direct-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Open A P I  Source](https://tinyopsstudio.com/assets/automation-preflight-api-openapi.json)
-- [Documentation](https://tinyopsstudio.com/automation-preflight-api)
+Authentication, trust centre, and vulnerability disclosure.
 
-### Automation Preflight API Health API
+- [Automation Preflight Api Authentication](https://apis.io/security/automation-preflight-api/automation-preflight-api-authentication/)
+- [Automation Preflight Api Domain Security](https://apis.io/security/automation-preflight-api/automation-preflight-api-domain-security/)
 
-The Health API from Automation Preflight API — 1 operation(s) for health.
+#### Plans and pricing (1)
 
-- **Human URL:** [https://tinyopsstudio.com/automation-preflight-api](https://tinyopsstudio.com/automation-preflight-api)
-- **Base URL:** `https://preflight.tinyopsstudio.com`
+Published plans, tiers and prices.
 
-#### Tags
+- [Automation Preflight Api Plans](https://apis.io/plans/automation-preflight-api/automation-preflight-api-plans/)
 
-- Health
+#### Rate limits (1)
 
-#### Properties
+Published request limits.
 
-- [OpenAPI](openapi/automation-preflight-api-health-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/automation-preflight-api-health-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/automation-preflight-api-health-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Open A P I  Source](https://tinyopsstudio.com/assets/automation-preflight-api-openapi.json)
-- [Documentation](https://tinyopsstudio.com/automation-preflight-api)
+- [Automation Preflight Api Rate Limits](https://apis.io/rate-limits/automation-preflight-api/automation-preflight-api-rate-limits/)
 
-## Common Properties
+## Where to find this API
 
-- [M C P Server](mcp/automation-preflight-api-mcp.yml)
-- [Overlay](overlays/automation-preflight-api-direct-overlay.yaml)
-- [Domain Security](security/automation-preflight-api-domain-security.yml)
-- [Agentic Access](agentic-access/automation-preflight-api-agentic-access.yml)
-- [Authentication](authentication/automation-preflight-api-authentication.yml)
-- [Developer Portal](https://tinyopsstudio.com/product)
-- [Support](https://tinyopsstudio.com/support)
-- [GitHub Organization](https://github.com/tinyopsstudio)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://tinyopsstudio.com/)
+- [Documentation](https://docs.api.market/)
 - [Pricing](https://api.market/store/tinyopsstudio/automation-preflight)
-- [Sign Up](https://tinyopsstudio.gumroad.com/l/automation-preflight-api-500)
-- [Terms of Service](https://tinyopsstudio.com/terms)
-- [Privacy Policy](https://tinyopsstudio.com/privacy)
-- [Agent Card](a2a/automation-preflight-api-a2a.yml)
-- [Well Known](well-known/automation-preflight-api-well-known.yml)
-- [L L Ms Txt](llms/automation-preflight-api-llms.txt)
-- [L L Ms Txt  Source](https://tinyopsstudio.com/llms.txt)
-- [Agent Skill](skills/_index.yml)
-- [Conventions](conventions/automation-preflight-api-conventions.yml)
-- [Error Catalog](errors/automation-preflight-api-problem-types.yml)
-- [Lifecycle](lifecycle/automation-preflight-api-lifecycle.yml)
-- [Conformance](conformance/automation-preflight-api-conformance.yml)
-- [Data Model](data-model/automation-preflight-api-data-model.yml)
-- [Rate Limits](rate-limits/automation-preflight-api-rate-limits.yml)
-- [Plans](plans/automation-preflight-api-plans.yml)
-- [Sandbox](sandbox/automation-preflight-api-sandbox.yml)
-- [Examples](examples/automation-preflight-api-analyze-example.json)
-- [Examples](examples/automation-preflight-api-health-and-errors-example.json)
+- [Sign up](https://tinyopsstudio.gumroad.com/l/automation-preflight-api-500)
+- [Support](https://tinyopsstudio.com/support)
+- [Terms of service](https://tinyopsstudio.com/terms)
+- [Privacy policy](https://tinyopsstudio.com/privacy)
+- [GitHub](https://github.com/tinyopsstudio)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** TinyOps Studio LLC
-**Email:** support@tinyopsstudio.com
-**URL:** https://tinyopsstudio.com
+**Kin Score 49.3** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 47.3 |
+| Contract governance | 18.2 |
+| Operational transparency | 23.7 |
+| Developer ergonomics | 44.6 |
+| Access clarity | 76.3 |
+
+**Agent readiness 27.5** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | flavored (partial credit) |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 24.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/automation-preflight-api/](https://apis.io/providers/automation-preflight-api/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Automation Preflight API: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/automation-preflight-api/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
